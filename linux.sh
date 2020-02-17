@@ -77,6 +77,7 @@ brew install zsh-syntax-highlighting
 echo "拷貝.zshrc檔案到機台上, 會把機台上原本的./zshrc備份在此資料夾的linux_backup裡面 \n"
 cp ~/.zshrc ./linux_backup
 cp ./zshrc ~/.zshrc
+source ~/.zshrc
 exec $SHELL
 
 echo "安裝 VScode..."

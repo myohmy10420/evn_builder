@@ -102,3 +102,15 @@ export DEFAULT_USER=`whoami`
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+source ~/.oh-my-zsh/plugins/git/git.plugin.zsh
+alias ls="ls -v" 
+alias ll="ls -lahv" 
+alias la="ls -ahv" 
+alias lla="ls -lahv" 
+
+alias devlog="tail -f log/development.log" 
+alias finder='open -a Finder'
+
+alias bi="bundle install" 
+alias bu="bundle update" 
