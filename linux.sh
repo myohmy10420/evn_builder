@@ -79,4 +79,8 @@ cp ~/.zshrc ./linux_backup
 cp ./zshrc ~/.zshrc
 exec $SHELL
 
+echo "安裝 VScode..."
+brew cask install visual-studio-code
+echo "打開vscode後執行shift + command + p輸入shell執行install command 'code' in PATH"
+
 exit 0
