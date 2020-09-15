@@ -6,3 +6,5 @@ stow --verbose git \
   tmux \
   ruby \
   asdf
+
+nvim +PlugInstall +qall
