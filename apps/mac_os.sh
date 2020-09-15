@@ -43,7 +43,7 @@ else
   brew install $apps
 fi
 
-echo "檢查Vundle 是否下載..."
+echo "檢查 Vundle 是否下載..."
 [ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle
 if [ ! -d ~/.vim/bundle/Vundle.vim ] ; then
   echo -e "尚未下載 Vundel, 準備開始下載..."
@@ -51,5 +51,16 @@ if [ ! -d ~/.vim/bundle/Vundle.vim ] ; then
 else
   echo -e "已下載 Vundle"
 fi
+
+echo "檢查 powerlevel10k 是否下載..."
+# 有任何字型問題可以參考
+# https://github.com/romkatv/powerlevel10k#meslo-nerd-font-patched-for-powerlevel10k
+if [ ! -d ~/powerlevel10k ] ; then
+  echo -e "尚未下載 powerlevel10k, 準備開始下載..."
+  git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+else
+  echo -e "已下載 powerlevel10k"
+fi
+echo -e "$ p10k configure 可以對 powerlevel10k 再次做設定"
 
 exit 0
