@@ -73,7 +73,6 @@ alias gcm='git checkout master'
 alias gcmsg='git commit -m'
 alias gco='git checkout'
 alias gcount='git shortlog -sn'
-compdef gcount=git
 alias gcp='git cherry-pick'
 alias gcs='git commit -S'
 
@@ -84,14 +83,12 @@ alias gdt='git diff-tree --no-commit-id --name-only -r'
 alias gdw='git diff --word-diff'
 
 gdv() { git diff -w "$@" | view - }
-compdef _git gdv=git-diff
 
 alias gf='git fetch'
 alias gfa='git fetch --all --prune'
 alias gfo='git fetch origin'
 
 function gfg() { git ls-files | grep $@ }
-compdef _grep gfg
 
 alias gg='git gui citool'
 alias gga='git gui citool --amend'
@@ -100,7 +97,6 @@ ggf() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
   git push --force origin "${b:=$1}"
 }
-compdef _git ggf=git-checkout
 
 ggl() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
@@ -110,7 +106,6 @@ ggl() {
     git pull origin "${b:=$1}"
   fi
 }
-compdef _git ggl=git-checkout
 
 ggp() {
   if [[ "$#" != 0 ]] && [[ "$#" != 1 ]]; then
@@ -120,7 +115,6 @@ ggp() {
     git push origin "${b:=$1}"
   fi
 }
-compdef _git ggp=git-checkout
 
 ggpnp() {
   if [[ "$#" == 0 ]]; then
@@ -129,34 +123,24 @@ ggpnp() {
     ggl "${*}" && ggp "${*}"
   fi
 }
-compdef _git ggpnp=git-checkout
 
 ggu() {
   [[ "$#" != 1 ]] && local b="$(git_current_branch)"
   git pull --rebase origin "${b:=$1}"
 }
-compdef _git ggu=git-checkout
 
 alias ggpur='ggu'
-compdef _git ggpur=git-checkout
 
-alias ggpull='git pull origin $(git_current_branch)'
-compdef _git ggpull=git-checkout
+alias ggpull='git pull origin'
 
-alias ggpush='git push origin $(git_current_branch)'
-compdef _git ggpush=git-checkout
-
-alias ggsup='git branch --set-upstream-to=origin/$(git_current_branch)'
+alias ggpush='git push origin'
 
 alias gignore='git update-index --assume-unchanged'
 alias gignored='git ls-files -v | grep "^[[:lower:]]"'
 alias git-svn-dcommit-push='git svn dcommit && git push github master:svntrunk'
-compdef git-svn-dcommit-push=git
 
 alias gk='\gitk --all --branches'
-compdef _git gk='gitk'
 alias gke='\gitk --all $(git log -g --pretty=format:%h)'
-compdef _git gke='gitk'
 
 alias gl='git pull'
 alias glg='git log --stat'
@@ -170,7 +154,6 @@ alias glola="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Crese
 alias glog='git log --oneline --decorate --graph'
 alias gloga='git log --oneline --decorate --graph --all'
 alias glp="_git_log_prettily"
-compdef _git glp=git-log
 
 alias gm='git merge'
 alias gmom='git merge origin/master'
@@ -181,7 +164,6 @@ alias gmum='git merge upstream/master'
 alias gp='git push'
 alias gpd='git push --dry-run'
 alias gpoat='git push origin --all && git push origin --tags'
-compdef _git gpoat=git-push
 alias gpu='git push upstream'
 alias gpv='git push -v'
 
