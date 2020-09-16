@@ -63,4 +63,18 @@ else
 fi
 echo -e "$ p10k configure 可以對 powerlevel10k 再次做設定"
 
+echo "檢查 asdf 是否下載..."
+if [ ! -d ~/.asdf ]; then
+  echo -e "尚未下載 asdf, 準備開始下載..."
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+  cd ~/.asdf
+  git checkout "$(git describe --abbrev=0 --tags)"
+else
+  echo "已下載 asdf"
+fi
+
+asdf plugin-add ruby    || true
+asdf plugin-add nodejs  || true
+asdf install
+
 exit 0
