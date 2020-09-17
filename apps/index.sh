@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 if [[ "`uname -s`" == "Darwin" ]]; then
   echo -e "Mac OS, run $ ./mac_os.sh\n"
   chmod 760 mac_os.sh
@@ -12,4 +11,3 @@ if [[ "`uname -s`" == "Linux" ]]; then
   chmod 760 linux.sh
   ./linux.sh
 fi
-  

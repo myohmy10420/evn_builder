@@ -46,6 +46,7 @@ fi
 
 sudo usermod -s /usr/bin/zsh $(whoami)
 
+source ~/.asdf/asdf.sh
 asdf plugin-add ruby    || true
 asdf plugin-add nodejs  || true
 asdf install

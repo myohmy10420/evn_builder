@@ -73,6 +73,7 @@ else
   echo "已下載 asdf"
 fi
 
+source ~/.asdf/asdf.sh
 asdf plugin-add ruby    || true
 asdf plugin-add nodejs  || true
 asdf install
