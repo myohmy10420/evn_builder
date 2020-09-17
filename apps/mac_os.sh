@@ -16,7 +16,7 @@ else
   echo "已安裝Homebrew"
 fi
 
-list=("curl" "git" "zsh" "nvim" "tmux")
+list=("curl" "git" "zsh" "nvim" "tmux" "stow")
 apps=""
 for app in "${list[@]}"
 do

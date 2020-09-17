@@ -2,7 +2,7 @@
 
 sudo apt-get update
 
-list=("curl" "git" "zsh" "nvim" "tmux" "imagemagick")
+list=("curl" "git" "zsh" "nvim" "tmux" "imagemagick" "stow")
 for app in "${list[@]}"
 do
   echo "檢查 $app 是否安裝..."
@@ -10,7 +10,7 @@ do
   if [ $? -ne 0 ]
   then
     echo "尚未安裝 $app, 準備開始安裝..."
-    sudo apt-get install $name
+    sudo apt-get install $app
   else
     echo "已安裝 $app"
   fi
@@ -40,11 +40,11 @@ echo "檢查 asdf 是否下載..."
 if [ ! -d ~/.asdf ]; then
   echo -e "尚未下載 asdf, 準備開始下載..."
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  cd ~/.asdf
-  git checkout "$(git describe --abbrev=0 --tags)"
 else
   echo "已下載 asdf"
 fi
+
+sudo usermod -s /usr/bin/zsh $(whoami)
 
 asdf plugin-add ruby    || true
 asdf plugin-add nodejs  || true
