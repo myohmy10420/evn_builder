@@ -58,6 +58,7 @@ echo "檢查 powerlevel10k 是否下載..."
 if [ ! -d ~/powerlevel10k ] ; then
   echo -e "尚未下載 powerlevel10k, 準備開始下載..."
   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
+  echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>! ~/.zshrc
 else
   echo -e "已下載 powerlevel10k"
 fi
