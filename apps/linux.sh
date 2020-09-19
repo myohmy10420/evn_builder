@@ -2,7 +2,7 @@
 
 sudo apt-get update
 
-list=("curl" "git" "zsh" "tmux" "imagemagick" "stow" "cmake")
+list=("curl" "git" "zsh" "tmux" "imagemagick" "stow" "cmake" "silversearcher-ag")
 for app in "${list[@]}"
 do
   echo "檢查 $app 是否安裝..."

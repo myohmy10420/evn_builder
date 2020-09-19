@@ -29,6 +29,13 @@ do
   fi
 done
 
+echo "檢查the_silver_searcher(ag)是否安裝..."
+if ! [ "$(command -v ag)" ] ; then
+  apps="$apps the_silver_searcher"
+else
+  echo "已安裝the_silver_searcher(ag)"
+fi
+
 echo "檢查imagemagick(convert)是否安裝..."
 if ! [ "$(command -v convert)" ] ; then
   apps="$apps imagemagick"
