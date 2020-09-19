@@ -16,7 +16,7 @@ else
   echo "已安裝Homebrew"
 fi
 
-list=("curl" "git" "zsh" "nvim" "tmux" "stow")
+list=("curl" "git" "zsh" "nvim" "tmux" "stow" "cmake")
 apps=""
 for app in "${list[@]}"
 do
@@ -68,15 +68,17 @@ echo "檢查 asdf 是否下載..."
 if [ ! -d ~/.asdf ]; then
   echo -e "尚未下載 asdf, 準備開始下載..."
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-  cd ~/.asdf
-  git checkout "$(git describe --abbrev=0 --tags)"
 else
   echo "已下載 asdf"
 fi
 
-source ~/.asdf/asdf.sh
-asdf plugin-add ruby    || true
-asdf plugin-add nodejs  || true
-asdf install
+echo "檢查 gpg(GunPG) 是否下載..."
+if [ ! -d ~/gnupg ]; then
+  echo -e "尚未下載 gpg, 準備開始下載..."
+  git clone git://git.gnupg.org/gnupg.git ~/gnupg
+  ~/gnupg/autogen.sh
+else
+  echo "已下載 gpg"
+fi
 
 exit 0

@@ -1,3 +1,7 @@
+let g:python_host_prog = $HOME . '/.asdf/installs/python/2.7.18/bin/python'
+let g:python3_host_prog = $HOME . '/.asdf/installs/python/3.6.9/bin/python'
+let g:ruby_host_prog = $HOME . '/.asdf/installs/ruby/2.7.0/bin/ruby'
+
 "  載入Plugin 
 "===========================================
 " Vundle, plugins 在 ~/.vim/bundle

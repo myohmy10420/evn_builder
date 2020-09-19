@@ -23,6 +23,20 @@ if [[ "`uname -s`" == "Linux" ]]; then
   fi
 fi
 
+bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+
+source ~/.asdf/asdf.sh
+asdf plugin-add ruby    || true
+asdf plugin-add rust    || true
+asdf plugin-add nodejs  || true
+asdf plugin-add python  || true
+asdf plugin-add golang  || true
+asdf install
+
+pip install pynvim
+pip2 install pynvim
+pip3 install pynvim
+
 chsh -s $(which zsh)
 
 cd ../
