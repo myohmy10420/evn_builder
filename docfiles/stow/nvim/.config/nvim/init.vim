@@ -13,9 +13,8 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim' " nvim 需要有這行
 Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
-" Plugin 'tpope/vim-bundler'
 Plugin 'preservim/nerdtree'
-Plugin 'Shougo/unite.vim' " 搜尋檔案
+Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案
 Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
 Plugin 'hukl/Smyck-Color-Scheme'
 
@@ -56,32 +55,8 @@ nnoremap <leader>v :ls<CR>:b
 "===========================================
 set shiftwidth=2 " tab 和 delete 一次增加或刪除2個空白
 set expandtab "tab 變空白
-
-" strpart (擷取字串, index, amount)
-" getline('.') current line as a string
-" col('.')當前字元的 index
-" l:part = 可以拿到當前字元的最後一個字
-function! TabAutoCO()
-  let l:part = strpart(getline('.'),col('.')-2,1)
-  if (l:part =~ '^\W\?$')
-      return "\<S-Tab>"
-  else
-      return "\<C-X>\<C-O>"
-  endif
-endfunction
-
-inoremap <S-Tab> <C-R>=TabAutoCO()<CR>
-
-function! TabAutoCN()
-  let l:part = strpart(getline('.'),col('.')-2,1)
-  if (l:part =~ '^\W\?$')
-      return "\<Tab>"
-  else
-      return "\<C-N>"
-  endif
-endfunction
-
-inoremap <Tab> <C-R>=TabAutoCN()<CR>
+nnoremap <silent> <tab> :bn<cr>
+nnoremap <silent> <s-tab> :bp<cr>
 
 
 "===========================================
@@ -90,14 +65,11 @@ inoremap <Tab> <C-R>=TabAutoCN()<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen=1 " 打開檔案後關閉 Nerdtree
 let NERDTreeShowHidden=1 " 隱藏檔案也看得到, 例如 .gitignore
-
-
-"===========================================
-" NERDTreeFind 相關
-"===========================================
 let g:airline#extensions#tabline#enabled = 1
 
-
+" Open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 
 
