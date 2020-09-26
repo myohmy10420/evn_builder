@@ -72,6 +72,7 @@ hi link erlangAtom            Keyword
 hi link erlangBitType         Keyword
 
 " Ruby
+hi erubyDelimiter             ctermfg=12 guifg=#96D9F1
 hi rubyBoolean                ctermfg=12 guifg=#96D9F1
 hi rubyConstant               ctermfg=12 guifg=#96D9F1
 hi rubyCharacter              ctermfg=12 guifg=#96D9F1
