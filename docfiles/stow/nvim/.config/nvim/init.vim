@@ -16,7 +16,8 @@ Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
 Plugin 'preservim/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案
 Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
-Plugin 'hukl/Smyck-Color-Scheme'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 filetype plugin indent on
@@ -48,6 +49,7 @@ let tabDivideEquel = 0 " 分頁總長超出畫面時，是否自動均分各分�
 " Short Cut
 "===========================================
 nnoremap <leader>v :ls<CR>:b 
+nnoremap <C-p> :Unite file_rec/async<cr>
 
 
 "===========================================
@@ -71,6 +73,13 @@ let g:airline#extensions#tabline#enabled = 1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
+
+"===========================================
+" vim-gitgutter 相關
+"===========================================
+set updatetime=100 " default 4000 是 4 秒才更新
+nmap <leader>gn <Plug>(GitGutterNextHunk)
+nmap <leader>gb <Plug>(GitGutterPrevHunk)
 
 
 "  Color 相關 
