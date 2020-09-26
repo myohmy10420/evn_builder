@@ -68,10 +68,14 @@ nnoremap <leader>f :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen=1 " 打開檔案後關閉 Nerdtree
 let NERDTreeShowHidden=1 " 隱藏檔案也看得到, 例如 .gitignore
 let g:airline#extensions#tabline#enabled = 1
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 
-" Open a NERDTree automatically when vim starts up if no files were specified
 autocmd StdinReadPre * let s:std_in=1
+" Open a NERDTree automatically when vim starts up if no files were specified
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Open NERDTree if opening a directory
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 
 
 "===========================================
