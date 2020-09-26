@@ -18,6 +18,11 @@ Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案
 Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'mg979/vim-visual-multi' " ctrl n 跟 vscode crtl d 一樣效果
+Plugin 'tpope/vim-surround' " c = change, d = delete, y = add, 後面 + s(surround) 開始使用
+Plugin 'tomtom/tcomment_vim' " gc comment
+Plugin 'nathanaelkane/vim-indent-guides' " 辨識縮排
+Plugin 'junegunn/vim-easy-align' " 指定某個字元自動對齊
 
 call vundle#end()
 filetype plugin indent on
@@ -86,5 +91,31 @@ nmap <leader>gn <Plug>(GitGutterNextHunk)
 nmap <leader>gb <Plug>(GitGutterPrevHunk)
 
 
+"===========================================
+" ale 相關
+"===========================================
+let g:ale_sign_column_always = 1
+
+
+"===========================================
+" indent_guides 相關
+"===========================================
+let g:indent_guides_enable_on_vim_startup = 1
+
+
+"===========================================
+" vim-easy-align 相關
+"===========================================
+vmap <Enter> <Plug>(EasyAlign)
+
+
 "  Color 相關 
 source ~/.config/nvim/color.vim
+
+
+"===========================================
+" indent_guides 相關
+"===========================================
+let g:indent_guides_auto_colors = 0
+hi IndentGuidesOdd  guibg=#484848 ctermbg=484848
+hi IndentGuidesEven guibg=#6d6d6d ctermbg=6d6d6d
