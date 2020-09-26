@@ -35,7 +35,7 @@ let mapleader="," " 設定 leader key
 
 set wrap " 字數過長時換行。
 set linebreak " 換行時不會切斷單字
-" set hidden
+set hidden " switch buffer without save
 " set titlestring=%F
 set list listchars=trail:· " tab 和空白顯示的標誌
 set autoindent " 自動縮排
@@ -54,6 +54,10 @@ let tabDivideEquel = 0 " 分頁總長超出畫面時，是否自動均分各分�
 "===========================================
 " Short Cut
 "===========================================
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
 nnoremap <leader>v :ls<CR>:b 
 nnoremap <leader>e :e<space>
 nnoremap <leader>c :
