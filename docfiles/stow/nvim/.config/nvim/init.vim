@@ -56,7 +56,7 @@ let tabDivideEquel = 0 " 分頁總長超出畫面時，是否自動均分各分�
 "===========================================
 nnoremap <leader>v :ls<CR>:b 
 nnoremap <leader>e :e<space>
-nnoremap <leader>: :
+nnoremap <leader>c :
 nnoremap <leader>ag<space> :!ag<space>
 nnoremap <leader>agf "ayiw:!ag<space><c-r>a<space>
 nnoremap <leader>agd "ayiw:!ag<space>'def<space><c-r>a'<space>
