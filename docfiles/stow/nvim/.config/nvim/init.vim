@@ -50,10 +50,16 @@ let tabScrollOff = 5 " 目前分頁左右至少顯示幾個分頁
 let tabEllipsis = '…' " 分頁過長而被截短時，要顯示的替代文字
 let tabDivideEquel = 0 " 分頁總長超出畫面時，是否自動均分各分頁寬度
 
+
 "===========================================
 " Short Cut
 "===========================================
 nnoremap <leader>v :ls<CR>:b 
+nnoremap <leader>e :e<space>
+nnoremap <leader>: :
+nnoremap <leader>ag<space> :!ag<space>
+nnoremap <leader>agf "ayiw:!ag<space><c-r>a<space>
+nnoremap <leader>agd "ayiw:!ag<space>'def<space><c-r>a'<space>
 
 
 "===========================================
