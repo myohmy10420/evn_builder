@@ -54,7 +54,6 @@ let tabDivideEquel = 0 " 分頁總長超出畫面時，是否自動均分各分�
 " Short Cut
 "===========================================
 nnoremap <leader>v :ls<CR>:b 
-nnoremap <C-p> :Unite file_rec/async<cr>
 
 
 "===========================================
