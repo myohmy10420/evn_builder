@@ -79,13 +79,4 @@ else
   echo "已下載 asdf"
 fi
 
-echo "檢查 gpg(GunPG) 是否下載..."
-if [ ! -d ~/gnupg ]; then
-  echo -e "尚未下載 gpg, 準備開始下載..."
-  git clone git://git.gnupg.org/gnupg.git ~/gnupg
-  ~/gnupg/autogen.sh
-else
-  echo "已下載 gpg"
-fi
-
 exit 0
