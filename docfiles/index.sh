@@ -1,6 +1,8 @@
 #!/bin/bash
 
-cd stow
+TOOL_DOTFILES_DIR=$(pwd)
+
+cd "$TOOL_DOTFILES_DIR/stow"
 for s in *; do stow -t ~ $s; done
 
 if ! grep -q "export EDITOR='~/nvim.appimage'" ~/.zshrc; then

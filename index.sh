@@ -1,9 +1,11 @@
-#/bin/bash
+#!/bin/bash
 
-cd apps
+TOOL_DIR=$(pwd)
+
+cd "$TOOL_DIR/apps"
 ./index.sh
 cd ../
 
-cd docfiles
+cd "$TOOL_DIR/docfiles"
 ./index.sh
 cd ../
