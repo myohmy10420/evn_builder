@@ -54,16 +54,28 @@ let tabDivideEquel = 0 " 分頁總長超出畫面時，是否自動均分各分�
 "===========================================
 " Short Cut
 "===========================================
+noremap <c-h> <c-w>h
+noremap <c-j> <c-w>j
+noremap <c-k> <c-w>k
+noremap <c-l> <c-w>l
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
 cnoremap <C-h> <Left>
 cnoremap <C-j> <Down>
 cnoremap <C-k> <Up>
 cnoremap <C-l> <Right>
+
+inoremap <leader>, <ESC>
 nnoremap <leader>v :ls<CR>:b 
 nnoremap <leader>e :e<space>
 nnoremap <leader>c :
 nnoremap <leader>ag<space> :!ag<space>
 nnoremap <leader>agf "ayiw:!ag<space><c-r>a<space>
 nnoremap <leader>agd "ayiw:!ag<space>'def<space><c-r>a'<space>
+nnoremap <leader>d :bd<CR>
+nnoremap <leader>w :w<CR>
 
 
 "===========================================
@@ -79,18 +91,16 @@ nnoremap <silent> <s-tab> :bp<cr>
 " NERDTreeFind 相關
 "===========================================
 nnoremap <leader>f :NERDTreeFind<CR>
+nnoremap <leader>n :NERDTreeFind<CR>
 let NERDTreeQuitOnOpen=1 " 打開檔案後關閉 Nerdtree
 let NERDTreeShowHidden=1 " 隱藏檔案也看得到, 例如 .gitignore
 let g:airline#extensions#tabline#enabled = 1
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
-autocmd StdinReadPre * let s:std_in=1
 " Open a NERDTree automatically when vim starts up if no files were specified
+autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Open NERDTree if opening a directory
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-
 
 "===========================================
 " vim-gitgutter 相關
