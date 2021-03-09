@@ -1,11 +1,9 @@
 #!/bin/bash
 
-TOOL_DIR=$(pwd)
+# echo "The script you are running has basename `basename "$0"`, dirname `dirname "$0"`"
+# echo "The present working directory is `pwd`"
 
-cd "$TOOL_DIR/apps"
-./index.sh
-cd ../
+TOOL_DIR=$(dirname "$0")
 
-cd "$TOOL_DIR/docfiles"
-./index.sh
-cd ../
+$TOOL_DIR/apps/index.sh
+$TOOL_DIR/docfiles/index.sh

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TOOL_DOTFILES_DIR=$(pwd)
+TOOL_DOTFILES_DIR=$(dirname "$0")
 
 cd "$TOOL_DOTFILES_DIR/stow"
 for s in *; do stow -t ~ $s; done
