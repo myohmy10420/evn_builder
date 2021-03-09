@@ -79,4 +79,12 @@ else
   echo "已下載 asdf"
 fi
 
+echo "檢查 zsh-autosuggestions 是否下載..."
+if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
+  echo -e "尚未下載 zsh-autosuggestions, 準備開始下載..."
+  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
+else
+  echo "已下載 zsh-autosuggestions"
+fi
+
 exit 0
