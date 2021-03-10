@@ -14,7 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " nvim 需要有這行
 Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
 Plugin 'preservim/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案
+Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案 C-p
 Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
@@ -23,6 +23,7 @@ Plugin 'tpope/vim-surround' " c = change, d = delete, y = add, 後面 + s(surrou
 Plugin 'tomtom/tcomment_vim' " gc comment
 Plugin 'nathanaelkane/vim-indent-guides' " 辨識縮排
 Plugin 'junegunn/vim-easy-align' " 指定某個字元自動對齊
+Plugin 'vim-test/vim-test' " 可以快速執行專案測試
 
 call vundle#end()
 filetype plugin indent on
@@ -117,12 +118,6 @@ let g:ale_sign_column_always = 1
 
 
 "===========================================
-" indent_guides 相關
-"===========================================
-let g:indent_guides_enable_on_vim_startup = 1
-
-
-"===========================================
 " vim-easy-align 相關
 "===========================================
 vmap <Enter> <Plug>(EasyAlign)
@@ -135,6 +130,18 @@ source ~/.config/nvim/color.vim
 "===========================================
 " indent_guides 相關
 "===========================================
+let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
 hi IndentGuidesOdd  guibg=#484848 ctermbg=484848
 hi IndentGuidesEven guibg=#6d6d6d ctermbg=6d6d6d
+
+
+"===========================================
+" vim-test 相關
+"===========================================
+" these 'Ctrl mappings' work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>
