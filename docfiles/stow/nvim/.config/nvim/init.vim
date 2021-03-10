@@ -13,6 +13,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim' " nvim 需要有這行
 Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
+Plugin 'tpope/vim-dispatch' " 可以把一些結果丟到分割畫面
 Plugin 'preservim/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案 C-p
 Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
