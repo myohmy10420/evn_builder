@@ -14,6 +14,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim' " nvim 需要有這行
 Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
 Plugin 'tpope/vim-dispatch' " 可以把一些結果丟到分割畫面
+Plugin 'neomake/neomake' " 搭配 vim-test 蠻好用
 Plugin 'preservim/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案 C-p
 Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
@@ -146,3 +147,6 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+
+let test#strategy = "neomake"
+let g:neomake_open_list = 2
