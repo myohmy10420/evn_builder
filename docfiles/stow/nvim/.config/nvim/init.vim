@@ -13,8 +13,6 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim' " nvim 需要有這行
 Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
-Plugin 'tpope/vim-dispatch' " 可以把一些結果丟到分割畫面
-Plugin 'neomake/neomake' " 搭配 vim-test 蠻好用
 Plugin 'preservim/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案 C-p
 Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
@@ -26,11 +24,10 @@ Plugin 'tomtom/tcomment_vim' " gc comment
 Plugin 'nathanaelkane/vim-indent-guides' " 辨識縮排
 Plugin 'junegunn/vim-easy-align' " 指定某個字元自動對齊
 Plugin 'vim-test/vim-test' " 可以快速執行專案測試
+Plugin 'kassio/neoterm' " 快速開 split terminal, C-D 殺掉 terminal
 
 call vundle#end()
 filetype plugin indent on
-
-
 
 
 " 漣Setting 漣
@@ -39,7 +36,6 @@ let mapleader="," " 設定 leader key
 set wrap " 字數過長時換行。
 set linebreak " 換行時不會切斷單字
 set hidden " switch buffer without save
-" set titlestring=%F
 set list listchars=trail:· " tab 和空白顯示的標誌
 set autoindent " 自動縮排
 set wildchar=<Tab> wildmenu wildmode=full
@@ -148,5 +144,6 @@ nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
 
-let test#strategy = "neomake"
-let g:neomake_open_list = 2
+" 搭配 neoterm 的設定
+let test#strategy = "neoterm"
+let g:neoterm_default_mod = 'botright'
