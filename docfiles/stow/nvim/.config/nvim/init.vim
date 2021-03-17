@@ -25,6 +25,8 @@ Plugin 'nathanaelkane/vim-indent-guides' " 辨識縮排
 Plugin 'junegunn/vim-easy-align' " 指定某個字元自動對齊
 Plugin 'vim-test/vim-test' " 可以快速執行專案測試
 Plugin 'kassio/neoterm' " 快速開 split terminal, C-D 殺掉 terminal
+Plugin 'tpope/vim-dadbod' " database 用
+Plugin 'kristijanhusak/vim-dadbod-ui' " dependency 上面的有 ui
 
 call vundle#end()
 filetype plugin indent on
