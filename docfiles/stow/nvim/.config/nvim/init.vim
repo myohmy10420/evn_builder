@@ -149,3 +149,12 @@ nmap <silent> t<C-g> :TestVisit<CR>
 " 搭配 neoterm 的設定
 let test#strategy = "neoterm"
 let g:neoterm_default_mod = 'botright'
+
+
+"===========================================
+" vim-dadbod-ui 相關
+"===========================================
+nnoremap <silent> <leader>du :DBUIToggle<CR>
+nnoremap <silent> <leader>df :DBUIFindBuffer<CR>
+nnoremap <silent> <leader>dr :DBUIRenameBuffer<CR>
+nnoremap <silent> <leader>dl :DBUILastQueryInfo<CR>
