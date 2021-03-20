@@ -29,11 +29,11 @@ do
   fi
 done
 
-echo "檢查the_silver_searcher(ag)是否安裝..."
-if ! [ "$(command -v ag)" ] ; then
-  apps="$apps the_silver_searcher"
+echo "檢查ripgrep(rg)是否安裝..."
+if ! [ "$(command -v rg)" ] ; then
+  apps="$apps ripgrep"
 else
-  echo "已安裝the_silver_searcher(ag)"
+  echo "已安裝ripgrep(rg)"
 fi
 
 echo "檢查imagemagick(convert)是否安裝..."
@@ -43,11 +43,11 @@ else
   echo "已安裝imagemagick"
 fi
 
-if [ -z "$var" ] ; then
-  echo -e "沒有東西需要 Homebrew 安裝了"
-else
+if [ $apps ] ; then
   echo -e "Homebrew 準備開始安裝$apps ..."
   brew install $apps
+else
+  echo -e "沒有東西需要 Homebrew 安裝了"
 fi
 
 echo "檢查 Vundle 是否下載..."

@@ -72,9 +72,9 @@ inoremap <leader>, <ESC>
 nnoremap <leader>v :ls<CR>:b 
 nnoremap <leader>e :e<space>
 nnoremap <leader>c :
-nnoremap <leader>ag<space> :!ag<space>
-nnoremap <leader>agf "ayiw:!ag<space><c-r>a<space>
-nnoremap <leader>agd "ayiw:!ag<space>'def<space><c-r>a'<space>
+nnoremap <leader>ag<space> :!rg<space>
+nnoremap <leader>agf "ayiw:!rg<space><c-r>a<space>
+nnoremap <leader>agd "ayiw:!rg<space>'def<space><c-r>a'<space>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>w :w<CR>
 
