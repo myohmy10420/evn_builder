@@ -43,11 +43,11 @@ else
   echo "已安裝imagemagick"
 fi
 
-if [ $apps ] ; then
+if [ -z $apps ] ; then
+  echo -e "沒有東西需要 Homebrew 安裝了"
+else
   echo -e "Homebrew 準備開始安裝$apps ..."
   brew install $apps
-else
-  echo -e "沒有東西需要 Homebrew 安裝了"
 fi
 
 echo "檢查 Vundle 是否下載..."
