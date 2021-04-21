@@ -27,6 +27,7 @@ Plugin 'vim-test/vim-test' " 可以快速執行專案測試
 Plugin 'kassio/neoterm' " 快速開 split terminal, C-D 殺掉 terminal
 Plugin 'tpope/vim-dadbod' " database 用
 Plugin 'kristijanhusak/vim-dadbod-ui' " dependency 上面的有 ui
+Plugin 'tpope/vim-fugitive' " github plugin
 
 call vundle#end()
 filetype plugin indent on
