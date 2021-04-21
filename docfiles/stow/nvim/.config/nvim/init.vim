@@ -12,22 +12,22 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim' " nvim 需要有這行
-Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
-Plugin 'preservim/nerdtree'
-Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案 C-p
-Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
-Plugin 'ycm-core/YouCompleteMe'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'mg979/vim-visual-multi' " ctrl n 跟 vscode crtl d 一樣效果
-Plugin 'tpope/vim-surround' " c = change, d = delete, y = add, 後面 + s(surround) 開始使用
-Plugin 'tomtom/tcomment_vim' " gc comment
-Plugin 'nathanaelkane/vim-indent-guides' " 辨識縮排
+Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案 C-p
 Plugin 'junegunn/vim-easy-align' " 指定某個字元自動對齊
-Plugin 'vim-test/vim-test' " 可以快速執行專案測試
 Plugin 'kassio/neoterm' " 快速開 split terminal, C-D 殺掉 terminal
-Plugin 'tpope/vim-dadbod' " database 用
 Plugin 'kristijanhusak/vim-dadbod-ui' " dependency 上面的有 ui
+Plugin 'mg979/vim-visual-multi' " ctrl n 跟 vscode crtl d 一樣效果
+Plugin 'nathanaelkane/vim-indent-guides' " 辨識縮排
+Plugin 'preservim/nerdtree'
+Plugin 'tomtom/tcomment_vim' " gc comment
+Plugin 'tpope/vim-dadbod' " database 用
 Plugin 'tpope/vim-fugitive' " github plugin
+Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
+Plugin 'tpope/vim-surround' " c = change, d = delete, y = add, 後面 + s(surround) 開始使用
+Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
+Plugin 'vim-test/vim-test' " 可以快速執行專案測試
+Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
