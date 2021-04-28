@@ -13,6 +13,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim' " nvim 需要有這行
 Plugin 'airblade/vim-gitgutter'
+Plugin 'christoomey/vim-tmux-navigator' " 搭配 .tmux.conf 支援 vim switch to other tmux window
 Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案 C-p
 Plugin 'junegunn/vim-easy-align' " 指定某個字元自動對齊
 Plugin 'kassio/neoterm' " 快速開 split terminal, C-D 殺掉 terminal
