@@ -81,6 +81,10 @@ nnoremap <leader>agd "ayiw:!rg<space>'def<space><c-r>a'<space>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>w :w<CR>
 
+autocmd FileType ruby nnoremap <leader>p obinding.pry<Esc>
+autocmd FileType clojure nnoremap <leader>p o(println<Esc>
+autocmd BufEnter,BufNew *.cljs nnoremap <leader>p o(js/console.log<Esc>
+
 
 "===========================================
 " Tab <Tab> 相關
