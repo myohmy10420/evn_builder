@@ -28,7 +28,7 @@ Plugin 'tpope/vim-rails' " 有:A, gf 等指令可以用
 Plugin 'tpope/vim-surround' " c = change, d = delete, y = add, 後面 + s(surround) 開始使用
 Plugin 'vim-airline/vim-airline' " 加強下方 statusline 和上方 tabline
 Plugin 'vim-test/vim-test' " 可以快速執行專案測試
-Plugin 'ycm-core/YouCompleteMe'
+" Plugin 'ycm-core/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
