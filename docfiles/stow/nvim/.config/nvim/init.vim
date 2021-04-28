@@ -17,7 +17,7 @@ Plugin 'christoomey/vim-tmux-navigator' " 搭配 .tmux.conf 支援 vim switch to
 Plugin 'ctrlpvim/ctrlp.vim' " 收尋檔案 C-p
 Plugin 'junegunn/vim-easy-align' " 指定某個字元自動對齊
 Plugin 'kassio/neoterm' " 快速開 split terminal, C-D 殺掉 terminal
-Plugin 'kristijanhusak/vim-dadbod-ui' " dependency 上面的有 ui
+Plugin 'kristijanhusak/vim-dadbod-ui' " dependency tpope/vim-dadbod, 支援 UI 介面
 Plugin 'mg979/vim-visual-multi' " ctrl n 跟 vscode crtl d 一樣效果
 Plugin 'morhetz/gruvbox' " theme
 Plugin 'nathanaelkane/vim-indent-guides' " 辨識縮排
