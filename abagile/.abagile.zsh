@@ -164,4 +164,5 @@ alias perv='cd ~/perv'
 alias rc='rails console'
 
 # skip patching migrate
-alias mg="rake db:migrate SKIP_PATCHING_MIGRATION='skip_any_patching_related_migrations'"
+alias mg="bundle exec rake db:migrate SKIP_PATCHING_MIGRATION='skip_any_patching_related_migrations'"
+alias rdm='bundle exec rake db:migrate'
