@@ -154,6 +154,15 @@ nmap <silent> t<C-g> :TestVisit<CR>
 let test#strategy = "neoterm"
 let g:neoterm_default_mod = 'botright'
 
+" 可以設定要在 terminal 下指令的起手式的快捷鍵, 像 leader key 的概念
+" tnoremap <Esc> <C-\><C-n>
+
+" switch back from terminal
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+
 
 "===========================================
 " vim-dadbod-ui 相關
