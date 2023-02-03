@@ -16,7 +16,7 @@ else
   echo "已安裝Homebrew"
 fi
 
-list=("curl" "git" "zsh" "nvim" "tmux" "stow" "cmake")
+list=("curl" "git" "zsh" "nvim" "tmux" "chezmoi")
 apps=""
 for app in "${list[@]}"
 do
@@ -43,20 +43,18 @@ else
   echo "已安裝imagemagick"
 fi
 
+echo "檢查gnupg(gpg)是否安裝..."
+if ! [ "$(command -v gpg)" ] ; then
+  apps="$apps gnupg"
+else
+  echo "已安裝gnupg(gpg)"
+fi
+
 if [ -z $apps ] ; then
   echo -e "沒有東西需要 Homebrew 安裝了"
 else
   echo -e "Homebrew 準備開始安裝$apps ..."
   brew install $apps
-fi
-
-echo "檢查 Vundle 是否下載..."
-[ ! -d ~/.vim/bundle ] && mkdir -p ~/.vim/bundle
-if [ ! -d ~/.vim/bundle/Vundle.vim ] ; then
-  echo -e "尚未下載 Vundel, 準備開始下載..."
-  git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-else
-  echo -e "已下載 Vundle"
 fi
 
 echo "檢查 powerlevel10k 是否下載..."
@@ -71,20 +69,20 @@ else
 fi
 echo -e "$ p10k configure 可以對 powerlevel10k 再次做設定"
 
-echo "檢查 asdf 是否下載..."
-if [ ! -d ~/.asdf ]; then
-  echo -e "尚未下載 asdf, 準備開始下載..."
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-else
-  echo "已下載 asdf"
-fi
-
 echo "檢查 zsh-autosuggestions 是否下載..."
 if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
   echo -e "尚未下載 zsh-autosuggestions, 準備開始下載..."
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 else
   echo "已下載 zsh-autosuggestions"
+fi
+
+echo "檢查rvm是否安裝..."
+if ! [ "$(command -v rvm)" ] ; then
+  gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+  \curl -sSL https://get.rvm.io | bash -s stable
+else
+  echo "已安裝rvm"
 fi
 
 exit 0

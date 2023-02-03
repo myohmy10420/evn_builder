@@ -6,4 +6,4 @@
 TOOL_DIR=$(dirname "$0")
 
 $TOOL_DIR/apps/index.sh
-$TOOL_DIR/docfiles/index.sh
+# $TOOL_DIR/docfiles/index.sh
