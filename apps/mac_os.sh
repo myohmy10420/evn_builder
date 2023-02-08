@@ -11,7 +11,7 @@ fi
 echo "檢查Homebrew是否安裝..."
 if ! [ "$(command -v brew)" ] ; then
   echo "尚未安裝Homebrew, 準備開始安裝..."
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 else
   echo "已安裝Homebrew"
 fi
