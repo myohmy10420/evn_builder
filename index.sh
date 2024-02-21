@@ -4,6 +4,4 @@
 # echo "The present working directory is `pwd`"
 
 TOOL_DIR=$(dirname "$0")
-
 $TOOL_DIR/apps/index.sh
-# $TOOL_DIR/docfiles/index.sh
