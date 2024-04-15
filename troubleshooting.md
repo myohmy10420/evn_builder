@@ -58,3 +58,17 @@ nvim 安裝完後，打開 .tmux.config 執行 prefix + I 安裝套件，會自�
 ```
 $ tmux source ~/.tmux.conf
 ```
+
+## 快速 gem SSH key 並使用
+
+```
+$ ssh-keygen -t rsa -b 4096
+$ ssh-add ~/.ssh/id_rsa
+```
+
+ssh key 加到 github 的話可以在專案底下測試連線
+
+```
+$ ssh -T git@github.com
+$ ssh -T git@gitlab.com:username/project.git
+```
