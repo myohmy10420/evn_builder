@@ -16,7 +16,8 @@ else
   echo "已安裝Homebrew"
 fi
 
-list=("curl" "git" "zsh" "nvim" "tmux" "chezmoi")
+# frum 是最新的 ruby 管理工具，安裝完後要在 zshrc 加上 eval "$(frum init)"
+list=("curl" "git" "zsh" "nvim" "tmux" "chezmoi" "frum")
 apps=""
 for app in "${list[@]}"
 do
@@ -77,12 +78,13 @@ else
   echo "已下載 zsh-autosuggestions"
 fi
 
-echo "檢查rvm是否安裝..."
-if ! [ "$(command -v rvm)" ] ; then
-  gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-  \curl -sSL https://get.rvm.io | bash -s stable
-else
-  echo "已安裝rvm"
-fi
+# 已經用 frum 取代 ruby 管理工具
+# echo "檢查rvm是否安裝..."
+# if ! [ "$(command -v rvm)" ] ; then
+#   gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+#   \curl -sSL https://get.rvm.io | bash -s stable
+# else
+#   echo "已安裝rvm"
+# fi
 
 exit 0
