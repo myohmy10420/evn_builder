@@ -17,7 +17,7 @@ else
 fi
 
 # frum 是最新的 ruby 管理工具，安裝完後要在 zshrc 加上 eval "$(frum init)"
-list=("curl" "git" "zsh" "nvim" "tmux" "chezmoi" "frum")
+list=("curl" "git" "zsh" "nvim" "tmux" "chezmoi" "frum" "lazygit")
 apps=""
 for app in "${list[@]}"
 do
