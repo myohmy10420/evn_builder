@@ -16,13 +16,12 @@ else
   echo "已安裝Homebrew"
 fi
 
-# frum 是最新的 ruby 管理工具，安裝完後要在 zshrc 加上 eval "$(frum init)"
-list=("curl" "git" "zsh" "nvim" "tmux" "chezmoi" "frum" "lazygit")
+list=("curl" "git" "zsh" "neovim" "tmux" "chezmoi" "rbenv" "lazygit" "ripgrep" "imagemagick" "gnupg" "zsh-autosuggestions")
 apps=""
-for app in "${list[@]}"
-do
+
+for app in "${list[@]}"; do
   echo "檢查 $app 是否安裝..."
-  if ! [ "$(command -v $app)" ] ; then
+  if ! brew list "$app" &>/dev/null; then
     echo "尚未安裝 $app, 等候安裝..."
     apps="$apps $app"
   else
@@ -30,32 +29,21 @@ do
   fi
 done
 
-echo "檢查ripgrep(rg)是否安裝..."
-if ! [ "$(command -v rg)" ] ; then
-  apps="$apps ripgrep"
-else
-  echo "已安裝ripgrep(rg)"
-fi
-
-echo "檢查imagemagick(convert)是否安裝..."
-if ! [ "$(command -v convert)" ] ; then
-  apps="$apps imagemagick"
-else
-  echo "已安裝imagemagick"
-fi
-
-echo "檢查gnupg(gpg)是否安裝..."
-if ! [ "$(command -v gpg)" ] ; then
-  apps="$apps gnupg"
-else
-  echo "已安裝gnupg(gpg)"
-fi
-
-if [ -z $apps ] ; then
+if [ -z "$apps" ] ; then
   echo -e "沒有東西需要 Homebrew 安裝了"
 else
   echo -e "Homebrew 準備開始安裝$apps ..."
   brew install $apps
+fi
+
+if brew list --formula | grep -q '^zsh$'; then
+  brew_zsh="$(brew --prefix)/bin/zsh"
+  if [ -f "$brew_zsh" ] && ! grep -q "$brew_zsh" /etc/shells; then
+    echo "Adding brew zsh to /etc/shells..."
+    echo "$brew_zsh" | sudo tee -a /etc/shells
+  fi
+  echo "設定 brew zsh 為預設 shell..."
+  chsh -s "$brew_zsh"
 fi
 
 echo "檢查 powerlevel10k 是否下載..."
@@ -69,22 +57,5 @@ else
   echo -e "已下載 powerlevel10k"
 fi
 echo -e "$ p10k configure 可以對 powerlevel10k 再次做設定"
-
-echo "檢查 zsh-autosuggestions 是否下載..."
-if [ ! -d ~/.zsh/zsh-autosuggestions ]; then
-  echo -e "尚未下載 zsh-autosuggestions, 準備開始下載..."
-  git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
-else
-  echo "已下載 zsh-autosuggestions"
-fi
-
-# 已經用 frum 取代 ruby 管理工具
-# echo "檢查rvm是否安裝..."
-# if ! [ "$(command -v rvm)" ] ; then
-#   gpg --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-#   \curl -sSL https://get.rvm.io | bash -s stable
-# else
-#   echo "已安裝rvm"
-# fi
 
 exit 0
