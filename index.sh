@@ -23,6 +23,12 @@ if [[ "`uname -s`" == "Darwin" ]]; then
   # 詢問是否安裝 Ruby on Rails 開發環境
   read -p "是否要安裝 Ruby on Rails 開發環境 (包含 rbenv, imagemagick)? (y/n): " install_ror
 
+  # 詢問是否安裝 Python 開發環境
+  read -p "是否要安裝 Python 開發環境 (包含 Python 3.11, poetry, FastAPI 相關)? (y/n): " install_python
+
+  # 詢問是否安裝 Docker 開發環境
+  read -p "是否要安裝 Docker 開發環境 (包含 Docker Desktop, docker-compose)? (y/n): " install_docker
+
   echo ""
 
   # 安裝基本環境
@@ -43,7 +49,25 @@ if [[ "`uname -s`" == "Darwin" ]]; then
     echo ""
   fi
 
-  if [[ "$install_base" =~ ^[Nn]$ ]] && [[ "$install_ror" =~ ^[Nn]$ ]]; then
+  # 安裝 Python 環境
+  if [[ "$install_python" =~ ^[Yy]$ ]]; then
+    echo "正在安裝 Python 開發環境..."
+    chmod +x $TOOL_APP_DIR/python.sh
+    $TOOL_APP_DIR/python.sh
+    echo "Python 開發環境安裝完成！"
+    echo ""
+  fi
+
+  # 安裝 Docker 環境
+  if [[ "$install_docker" =~ ^[Yy]$ ]]; then
+    echo "正在安裝 Docker 開發環境..."
+    chmod +x $TOOL_APP_DIR/docker.sh
+    $TOOL_APP_DIR/docker.sh
+    echo "Docker 開發環境安裝完成！"
+    echo ""
+  fi
+
+  if [[ "$install_base" =~ ^[Nn]$ ]] && [[ "$install_ror" =~ ^[Nn]$ ]] && [[ "$install_python" =~ ^[Nn]$ ]] && [[ "$install_docker" =~ ^[Nn]$ ]]; then
     echo "未選擇任何安裝選項，程式結束。"
   else
     echo "安裝完成！享受您的開發環境 🎉"
