@@ -4,14 +4,14 @@ echo "安裝 Docker 開發環境..."
 
 # 檢查是否已安裝 Docker Desktop
 if [ -d "/Applications/Docker.app" ]; then
-  echo "✅ 已安裝 Docker Desktop"
+  echo -e "\033[32m✅ 已安裝 Docker Desktop\033[0m"
 else
-  echo "安裝 Docker Desktop..."
+  echo -e "\033[33m安裝 Docker Desktop...\033[0m"
   if ! brew list --cask docker &>/dev/null; then
-    echo "透過 Homebrew 安裝 Docker Desktop..."
+    echo -e "\033[33m透過 Homebrew 安裝 Docker Desktop...\033[0m"
     brew install --cask docker
   else
-    echo "已透過 Homebrew 安裝 Docker Desktop"
+    echo -e "\033[32m已透過 Homebrew 安裝 Docker Desktop\033[0m"
   fi
 fi
 
@@ -22,10 +22,10 @@ apps=""
 for app in "${list[@]}"; do
   echo "檢查 $app 是否安裝..."
   if ! brew list "$app" &>/dev/null; then
-    echo "尚未安裝 $app, 等候安裝..."
+    echo -e "\033[33m尚未安裝 $app, 等候安裝...\033[0m"
     apps="$apps $app"
   else
-    echo "已安裝 $app"
+    echo -e "\033[32m已安裝 $app\033[0m"
   fi
 done
 
@@ -39,11 +39,11 @@ fi
 # 檢查 Docker 是否運行
 echo "檢查 Docker 服務狀態..."
 if ! docker info &>/dev/null; then
-  echo "⚠️  Docker 服務未運行，請啟動 Docker Desktop"
+  echo -e "\033[33m⚠️  Docker 服務未運行，請啟動 Docker Desktop\033[0m"
   echo "   可以從 Applications 資料夾打開 Docker.app"
   echo "   或使用: open -a Docker"
 else
-  echo "✅ Docker 服務運行正常"
+  echo -e "\033[32m✅ Docker 服務運行正常\033[0m"
   docker_version=$(docker --version)
   echo "   $docker_version"
 fi

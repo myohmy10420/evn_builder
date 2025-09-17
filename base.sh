@@ -16,16 +16,16 @@ else
   echo "已安裝Homebrew"
 fi
 
-list=("curl" "git" "zsh" "neovim" "tmux" "chezmoi" "lazygit" "ripgrep" "gnupg" "zsh-autosuggestions" "fzf" "fd" "eza" "htop" "jq")
+list=("curl" "git" "zsh" "neovim" "tmux" "chezmoi" "lazygit" "ripgrep" "gnupg" "zsh-autosuggestions" "fzf" "fd" "eza" "bat" "htop" "jq")
 apps=""
 
 for app in "${list[@]}"; do
   echo "檢查 $app 是否安裝..."
   if ! brew list "$app" &>/dev/null; then
-    echo "尚未安裝 $app, 等候安裝..."
+    echo -e "\033[33m尚未安裝 $app, 等候安裝...\033[0m"
     apps="$apps $app"
   else
-    echo "已安裝 $app"
+    echo -e "\033[32m已安裝 $app\033[0m"
   fi
 done
 

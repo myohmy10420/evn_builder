@@ -9,10 +9,10 @@ apps=""
 for app in "${list[@]}"; do
   echo "檢查 $app 是否安裝..."
   if ! brew list "$app" &>/dev/null; then
-    echo "尚未安裝 $app, 等候安裝..."
+    echo -e "\033[33m尚未安裝 $app, 等候安裝...\033[0m"
     apps="$apps $app"
   else
-    echo "已安裝 $app"
+    echo -e "\033[32m已安裝 $app\033[0m"
   fi
 done
 
@@ -30,7 +30,7 @@ if [ "$(command -v pyenv)" ] ; then
     echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
     echo 'command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
     echo 'eval "$(pyenv init -)"' >> ~/.zshrc
-    echo "已將 pyenv init 加入 ~/.zshrc"
+    echo -e "\033[32m已將 pyenv init 加入 ~/.zshrc\033[0m"
   fi
 fi
 
@@ -40,9 +40,9 @@ python_version=$(python3 --version 2>&1 | cut -d' ' -f2)
 required_version="3.10"
 
 if [ "$(printf '%s\n' "$required_version" "$python_version" | sort -V | head -n1)" = "$required_version" ]; then
-  echo "✅ Python 版本 $python_version 符合需求 (>= $required_version)"
+  echo -e "\033[32m✅ Python 版本 $python_version 符合需求 (>= $required_version)\033[0m"
 else
-  echo "⚠️  Python 版本 $python_version 可能需要升級 (建議 >= $required_version)"
+  echo -e "\033[33m⚠️  Python 版本 $python_version 可能需要升級 (建議 >= $required_version)\033[0m"
   if [ "$(command -v pyenv)" ] ; then
     echo "可以使用 'pyenv install 3.11.0' 安裝新版本"
     echo "然後使用 'pyenv global 3.11.0' 設定全域版本"
@@ -57,10 +57,10 @@ tools_apps=""
 for tool in "${dev_tools[@]}"; do
   echo "檢查 $tool 是否安裝..."
   if ! brew list "$tool" &>/dev/null; then
-    echo "尚未安裝 $tool, 等候安裝..."
+    echo -e "\033[33m尚未安裝 $tool, 等候安裝...\033[0m"
     tools_apps="$tools_apps $tool"
   else
-    echo "已安裝 $tool"
+    echo -e "\033[32m已安裝 $tool\033[0m"
   fi
 done
 
