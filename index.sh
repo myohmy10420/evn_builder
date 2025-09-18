@@ -29,6 +29,9 @@ if [[ "`uname -s`" == "Darwin" ]]; then
   # 詢問是否安裝 Docker 開發環境
   read -p "是否要安裝 Docker 開發環境 (包含 Docker Desktop, docker-compose)? (y/n): " install_docker
 
+  # 詢問是否安裝 Neovim LSP 伺服器
+  read -p "是否要安裝 Neovim LSP 伺服器 (包含 Ruby, JS/TS, Lua, Python LSP)? (y/n): " install_lsp
+
   echo ""
 
   # 安裝基本環境
@@ -67,7 +70,16 @@ if [[ "`uname -s`" == "Darwin" ]]; then
     echo ""
   fi
 
-  if [[ "$install_base" =~ ^[Nn]$ ]] && [[ "$install_ror" =~ ^[Nn]$ ]] && [[ "$install_python" =~ ^[Nn]$ ]] && [[ "$install_docker" =~ ^[Nn]$ ]]; then
+  # 安裝 LSP 環境
+  if [[ "$install_lsp" =~ ^[Yy]$ ]]; then
+    echo "正在安裝 Neovim LSP 伺服器..."
+    chmod +x $TOOL_APP_DIR/lsp.sh
+    $TOOL_APP_DIR/lsp.sh
+    echo "Neovim LSP 伺服器安裝完成！"
+    echo ""
+  fi
+
+  if [[ "$install_base" =~ ^[Nn]$ ]] && [[ "$install_ror" =~ ^[Nn]$ ]] && [[ "$install_python" =~ ^[Nn]$ ]] && [[ "$install_docker" =~ ^[Nn]$ ]] && [[ "$install_lsp" =~ ^[Nn]$ ]]; then
     echo "未選擇任何安裝選項，程式結束。"
   else
     echo "安裝完成！享受您的開發環境 🎉"
