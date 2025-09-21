@@ -32,6 +32,9 @@ if [[ "`uname -s`" == "Darwin" ]]; then
   # 詢問是否安裝 Neovim LSP 伺服器
   read -p "是否要安裝 Neovim LSP 伺服器 (包含 Ruby, JS/TS, Lua, Python LSP)? (y/n): " install_lsp
 
+  # 詢問是否安裝字型和圖標
+  read -p "是否要安裝字型和圖標 (包含 Nerd Fonts, 用於 Terminal 顯示)? (y/n): " install_fonts
+
   echo ""
 
   # 安裝基本環境
@@ -79,7 +82,16 @@ if [[ "`uname -s`" == "Darwin" ]]; then
     echo ""
   fi
 
-  if [[ "$install_base" =~ ^[Nn]$ ]] && [[ "$install_ror" =~ ^[Nn]$ ]] && [[ "$install_python" =~ ^[Nn]$ ]] && [[ "$install_docker" =~ ^[Nn]$ ]] && [[ "$install_lsp" =~ ^[Nn]$ ]]; then
+  # 安裝字型和圖標
+  if [[ "$install_fonts" =~ ^[Yy]$ ]]; then
+    echo "正在安裝字型和圖標..."
+    chmod +x $TOOL_APP_DIR/fonts.sh
+    $TOOL_APP_DIR/fonts.sh
+    echo "字型和圖標安裝完成！"
+    echo ""
+  fi
+
+  if [[ "$install_base" =~ ^[Nn]$ ]] && [[ "$install_ror" =~ ^[Nn]$ ]] && [[ "$install_python" =~ ^[Nn]$ ]] && [[ "$install_docker" =~ ^[Nn]$ ]] && [[ "$install_lsp" =~ ^[Nn]$ ]] && [[ "$install_fonts" =~ ^[Nn]$ ]]; then
     echo "未選擇任何安裝選項，程式結束。"
   else
     echo "安裝完成！享受您的開發環境 🎉"
